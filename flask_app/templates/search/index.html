@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Elo Groups</title>
+ <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
+</head>
+<body>
+	<div class="topbar">
+		<span>ELO Groups</span>
+		<input type="button" class="redbutton" value="Create Group" onclick="window.location = '{{ url_for('create.create') }}';">
+		<input type="button" class="redbutton" value="Join Group">
+	</div>
+	<div class="page">
+		<div class="card">
+			<h2>Results for "{{ q }}"</h2>
+		</div>
+		{% for result in results %}
+			<div class="card">
+				<h2>{{ result["name"] }}</h2>
+				<p>{{ result["description"] if result["description"] != "" else "No description provided." }}</p>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+</html>

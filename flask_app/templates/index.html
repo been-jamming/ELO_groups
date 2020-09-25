@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Elo Groups</title>
+ <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
+</head>
+<body>
+	<div class="topbar">
+		<span>ELO Groups</span>
+		<input type="button" class="redbutton" value="Create Group">
+		<input type="button" class="redbutton" value="Join Group">
+	</div>
+	<div class="page">
+		<div class = "search_container">
+			<h2>Find an ELO group</h2>
+			<div class = "search">
+				<form action="{{ url_for('search.search') }}" method="get">
+					<input type="search" name="q">
+					<input type="submit" class="redbutton" value="Search Groups">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Elo Groups</title>
+ <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<link href="{{ url_for('static', filename = 'style.css') }}" rel="stylesheet">
+</head>
+<body>
+	<div class="topbar">
+		<span>ELO Groups</span>
+		<input type="button" class="redbutton" value="Create Group">
+		<input type="button" class="redbutton" value="Join Group">
+	</div>
+	<div class="page">
+		<div class="card">
+			<h2>Create a group</h2>
+			<form action = "{{ url_for('create.create_group') }}" method = "post">
+				<div style="margin-top: 10px;"><span>Group name: </span><input type="text" name="name" required></div>
+				<br>
+				<div style="margin-top: 10px;"><span>Description: </span><textarea style="height: 100px; width: 500px;" name="description"></textarea></div>
+				<input type="submit" value="Create Group" class="redbutton">
+			</form>
+		</div>
+		{% if error != None %}
+			<div class="error">
+				<p>{{ error }}</p>
+				<span class="clicky_x" onclick="this.parentNode.parentNode.removeChild(this.parentNode)">X</span>
+			</div>
+		{% endif %}
+	</div>
+</body>
+</html>
